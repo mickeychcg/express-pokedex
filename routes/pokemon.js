@@ -17,7 +17,7 @@ router.post('', function (req, res) {
   db.pokemon.create({
     name: req.body.name
   }).then(function () {
-    res.redirect('pokemon')
+    res.redirect('/pokemon')
   });
 });
 
@@ -31,15 +31,15 @@ router.get("/:name", function (req, res) {
   });
 });
 
-/* POST - / Get form data and add a new record to DB
-and displays card attributes - NOT WORKING! */
-router.post("/:name", function (req, res) {
-  let uri = ("http://pokeapi.co/api/v2/pokemon/" + req.params.name);
-  request(uri, function (error, response, body) {
-    let stats = JSON.parse(body)
-    res.render('pokemon', { stats })
-  });
-});
+// /* POST - / Get form data and add a new record to DB
+// and displays card attributes - NOT WORKING! */
+// router.post("/:name", function (req, res) {
+//   let uri = ("http://pokeapi.co/api/v2/pokemon/" + req.params.name);
+//   request(uri, function (error, response, body) {
+//     let stats = JSON.parse(body)
+//     res.render('pokemon/show', { stats })
+//   });
+// });
 
 // // TODO: Get form data and add a new record to DB
 module.exports = router;
