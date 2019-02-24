@@ -1,0 +1,9 @@
+      <h2><%= stats.name %></h2>
+
+<p> <% stats.types.forEach(function(elem) { %>
+  <%= elem.type.name %>
+  <% }); %> </p>
+
+<p> <%  stats.moves.forEach(function(elem) { %>
+  <%= elem.move.name %> 
+  <% }); %> </p>
