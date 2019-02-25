@@ -1,0 +1,10 @@
+.description {
+  background-color: rgb(179, 215, 228)
+  
+}
+.btn {
+  margin: 10px;
+}
+.each {
+  display: grid;
+}
