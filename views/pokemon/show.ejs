@@ -1,11 +1,12 @@
-<div class="container">
-  <h2><%= api.name %></h2>
+  <h1><%= api.name %></h1>
 
-<p> <% api.types.forEach(function(elem) { %>
+<h2> Ability <br><% api.types.forEach(function(elem) { %>
   <%= elem.type.name %>
   <% }); %> </p>
 
-<p> <%  api.abilities.forEach(function(elem) { %>
+<h3> <%  api.abilities.forEach(function(elem) { %>
   <%= elem.ability.name %> 
   <% }); %> </p>
 </div>
+
+

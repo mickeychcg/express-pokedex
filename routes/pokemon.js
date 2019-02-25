@@ -30,7 +30,7 @@ router.get("/:name", function (req, res) {
     res.render('pokemon/show', { api })
   });
 });
-
+ 
 // /* POST - / Get form data and add a new record to DB
 // and displays card attributes - NOT WORKING! */
 // router.post("/:name", function (req, res) {
