@@ -1,12 +1,13 @@
-  <h1><%= api.name %></h1>
+  <h1><%= pokemon.name %></h1>
 
-<h2> Ability <br><% api.types.forEach(function(elem) { %>
-  <%= elem.type.name %>
-  <% }); %> </p>
+  <h2> Ability <br><% api.height.forEach(function(elem) { %>
+    <%=  %>
+    <% }); %> </p>
+  
+  <h3> <%  api.abilities.forEach(function(elem) { %>
+    <%= elem.ability.name %> 
+    <% }); %> </p>
+  </div>
 
-<h3> <%  api.abilities.forEach(function(elem) { %>
-  <%= elem.ability.name %> 
-  <% }); %> </p>
-</div>
 
-
+<a href=<% image %></a>

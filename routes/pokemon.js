@@ -24,22 +24,26 @@ router.post('/', function (req, res) {
 /* GET /pokemon - return a page with favorited Pokemon
 and displays card attributes */
 router.get("/:name", function (req, res) {
-  let uri = ("http://pokeapi.co/api/v2/pokemon/" + req.params.name);
-  request(uri, function (error, response, body) {
-    let api = JSON.parse(body)
-    res.render('pokemon/show', { api })
+  db.pokemon.findOne(req.body.name).then(function(pokemon) {
+    let name = pokemon.name;
+    let uri = ("http://pokeapi.co/api/v2/pokemon/" + name + "/");
+    request(uri, function (error, response, body) {
+      let api = JSON.parse(body);
+      let image = JSON.parse(body).sprites.front_default;
+      let height = JSON.parse(body).height;
+      let abilities = JSON.parse(body).abilities;
+      res.render('pokemon/show', { pokemon, api, image, height, abilities });
+    });
   });
 });
- 
-// /* POST - / Get form data and add a new record to DB
-// and displays card attributes - NOT WORKING! */
-// router.post("/:name", function (req, res) {
-//   let uri = ("http://pokeapi.co/api/v2/pokemon/" + req.params.name);
-//   request(uri, function (error, response, body) {
-//     let stats = JSON.parse(body)
-//     res.render('pokemon/show', { stats })
-//   });
-// });
 
-// // TODO: Get form data and add a new record to DB
+// DELETE ONE
+router.delete('/:name', function (req, res) {
+  db.pokemon.destroy({
+    where: { name: req.params.name }
+  }).then(function () {
+    res.redirect('/pokemon');
+  })
+})
+
 module.exports = router;
